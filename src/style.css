@@ -20,3 +20,16 @@
     text-decoration: none;
     
 }
+.conteiner__main{
+    text-align: center
+}
+
+.conteiner__main-titulo{
+    margin: 10px;
+    font-size: 50px;
+
+}
+.conteiner__main-texto{
+    font-size: 20px;
+    margin: 5px;
+}
