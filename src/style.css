@@ -44,3 +44,16 @@
     width: 20px;
     padding: 5px;
 }
+.conteiner__products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.conteiner__products-card{
+    background-color: gray;
+    border-radius: 3px;
+    margin: 5px;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+}
