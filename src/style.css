@@ -81,10 +81,16 @@ body{
     height: 300px;
     padding: 5px;
 }
-.conteiner__products-cards h1 {
+.conteiner__products-cards h2 {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+.conteiner__products-cards a {
+    text-decoration: none;
+    font-family: var(--fuentePrincipal);
+    font-weight: 400;
+    font-size: 17px;
 }
 
 .itemDetail {
@@ -118,7 +124,7 @@ body{
     titulo;margin: 1rem;
 }
 h2 {
-    font-size: 40px;
+    font-size: 25px;
     font-family: var(--fuentePrincipal);
     font-weight: 600;
 }
