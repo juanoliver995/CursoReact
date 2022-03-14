@@ -1,10 +1,11 @@
 const Item = ({ item }) => {
     return (
-        <div className="conteiner__products-card">
-            <h1>{item.title}</h1>
-            <p>{item.description}</p>
-            <h2>{item.price}</h2>
-        </div>
+        <article className="conteiner__products-cards">
+            <h2>{item.title}</h2>
+            <img src={item.image}></img>
+            <p>Precio: ${item.price}</p>
+            <a> Ver detalle</a>
+        </article>
     )
 }
 

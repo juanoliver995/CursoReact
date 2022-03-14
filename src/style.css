@@ -1,9 +1,16 @@
+:root {
+    --fuentePrincipal: 'Lexend', sans-serif;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+body{
+    background-color: #F7F7F7;
+}
 .nav{
     background-color: yellow;
     display: flex;
@@ -12,6 +19,8 @@
     padding: 10px 10px;
     font-size: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: var(--fuentePrincipal);
+    font-weight: 600;
 }
 
 
@@ -45,15 +54,86 @@
     padding: 5px;
 }
 .conteiner__products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    padding-left: 30px;
 }
-.conteiner__products-card{
-    background-color: gray;
+.conteiner__products-cards {
+    padding: 0.5rem;
     border-radius: 3px;
-    margin: 5px;
-    width: 200px;
-    height: 100px;
-    text-align: center;
+    border: 1px solid #dadce0;
+    width: 90%;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    cursor:pointer;
+    margin-bottom: 5px;  
+    background-color: #fff; 
+}
+.conteiner__products-cards:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.1);
+}   
+
+
+.conteiner__products-cards img {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+    padding: 5px;
+}
+.conteiner__products-cards h1 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.itemDetail {
+    padding: 2rem;
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    grid-template-rows: 1.4fr 0.6fr;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:"imagen titulo""descripcion descripcion";
+}
+.imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: imagen;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+.imagen img {
+    width: 400px;
+    height: 500px;
+}
+    
+.titulos {
+    grid-area: titulo
+    titulo;margin: 1rem;
+}
+h2 {
+    font-size: 40px;
+    font-family: var(--fuentePrincipal);
+    font-weight: 600;
+}
+p {
+    margin-top: 1rem;
+    font-size: 20px;
+    font-family: var(--fuentePrincipal);
+    font-weight: 400;
+}
+
+.descripcion {
+    grid-area: descripcion;
+    margin-top: 1rem;
+}
+
+.rate {
+    margin-top: 0;
 }

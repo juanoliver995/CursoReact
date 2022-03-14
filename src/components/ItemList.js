@@ -1,14 +1,13 @@
 import Item from "./Item"
 
-export default function ItemList({ items }) {
+const ItemList = ({ items }) => {
     return (
         <section className="conteiner__products">
-            {items.map(item => (
-                <div>
-                    <Item key={item.id} item={item} />
-                </div>
-            ))}
+            {items.map((item) => {
+                return <Item key={item.id} item={item} />
+            })}
         </section>
     )
 }
 
+export default ItemList

@@ -1,22 +1,25 @@
 import { useEffect, useState } from "react";
-import products from "../products";
 import ItemList from "./ItemList";
 
 const ItemListConteiner = (nombre) => {
 
     const [items, setItems] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        const pedido = new Promise((res, rej) => {
-            setTimeout(() => {
-                res(products)
-            }, 3000)
-        })
-        pedido.then((resultado) => {
-            setItems(resultado)
-        })
+        fetch('https://fakestoreapi.com/products')
+            .then((response) => {
+                return response.json()
+
+            })
+            .then((respuesta) => {
+                setItems(respuesta)
+            })
             .catch((error) => {
-                console.log("algo salio mal")
+                ("esto es un error")
+            })
+            .finally(() => {
+                setLoading(false)
             })
 
     })
