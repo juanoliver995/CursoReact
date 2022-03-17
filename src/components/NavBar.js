@@ -1,15 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom"
+import logo from "../assets/logo.png"
 
 const Navbar = () => {
     return (
         <header>
             <nav className="nav">
-                <a src="">NOMBRE DE LA TIENDA</a>
-                <span className="material-icons">shopping_cart</span>
+                <Link to="/"><img className="logo" src={logo}></img></Link >
+                <Link to="/ShoppingCart" className="nav__icon"><span className="material-icons">shopping_cart</span></Link>
                 <div className="nav__links">
-                    <a href="">Productos</a>
-                    <a href="">Contacto</a>
-                    <a href="">Quienes Somos</a>
+                    <Link to="/categoria/electronics">Electronicos</Link>
+                    <Link to="/categoria/jewelery">Joyas</Link>
+                    <Link to="categoria/men's clothing">Ropa Hombre</Link>
+                    <Link to="categoria/women's clothing">Ropa Mujer</Link>
                 </div>
             </nav>
         </header >

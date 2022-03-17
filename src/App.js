@@ -1,13 +1,17 @@
 import Main from "./components/Main"
-import ItemCount from "./components/ItemCount"
 import NavBar from "./components/NavBar"
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter } from "react-router-dom"
 
 function App() {
     return (
         <>
-            <NavBar />
-            <Main />
-            {/* <ItemCount initial={1} stock={10} /> */}
+            <BrowserRouter>
+                <NavBar />
+                <Main />
+                <ToastContainer />
+            </BrowserRouter>
         </>
     )
 

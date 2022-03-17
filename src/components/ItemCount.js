@@ -17,7 +17,7 @@ const ItemCount = ({ initial, stock }) => {
     return (
         <div className="contador">
             <div>
-                <h2 className="count">Mi contador va :{count}</h2>
+                <h2 className="count">{count}</h2>
             </div>
             <div>
                 <button className="botones" onClick={restar} >-</button>
