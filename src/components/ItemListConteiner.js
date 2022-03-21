@@ -3,6 +3,7 @@ import ItemList from "./ItemList";
 import { toast } from "react-toastify"
 import { useParams } from "react-router-dom";
 
+
 const ItemListConteiner = (nombre) => {
 
     const [items, setItems] = useState([])
@@ -37,12 +38,7 @@ const ItemListConteiner = (nombre) => {
 
 
     return (
-
         <main>
-            <div className="conteiner__main">
-                <h1 className="conteiner__main-titulo">Bienvenido a nuestra tienda {nombre.nombre}</h1>
-                <p className="conteiner__main-texto">Actualmente nuestro sitio se encuentra en construccion regresa luego </p>
-            </div>
             <div >
                 <>
                     <ItemList items={items} />
