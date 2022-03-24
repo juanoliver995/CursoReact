@@ -1,19 +1,19 @@
 import Rate from 'rc-rate';
 import 'rc-rate/assets/index.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom';
+import { contexto } from './context/CartContext';
 
 const ItemDetail = ({ item }) => {
-
+    const { agregarProductos } = useContext(contexto)
 
     const [cantidad, setCantidad] = useState(0)
 
     const onAdd = (cantidadSeleccionada) => {
         setCantidad(cantidadSeleccionada);
-
+        agregarProductos(item, cantidadSeleccionada)
     }
-
 
     return (
         <article key={item.id} className="itemDetail">
