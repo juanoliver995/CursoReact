@@ -240,6 +240,7 @@ a {
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:"imagen titulo""descripcion descripcion";
+    padding-top: 100px;
 }
 .imagen {
     display: flex;
@@ -306,6 +307,17 @@ footer {
     padding-bottom: 10px;
     padding-top: 7px;
     margin-top: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
     
     
+}
+.contendeorCarrito {
+    padding-top: 100px;
+    display: grid;
+}
+
+.imagenCarrito {
+    width: 100%;
 }

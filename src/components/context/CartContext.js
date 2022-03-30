@@ -18,8 +18,6 @@ const MiProvider = ({ children }) => {
             carritoCopia.push(itemAlCarrito)
             setCarrito(carritoCopia)
         }
-
-
     }
 
     const yaExiste = (id) => {
@@ -27,32 +25,32 @@ const MiProvider = ({ children }) => {
     }
 
     const borrarItem = (id) => {
-        setCarrito(carrito.filter(producto => producto.id === id))
+        setCarrito(carrito.filter((item) => item.id !== id))
     }
 
-
-    const vaciarCarrito = (id) => {
+    const vaciarCarrito = () => {
         setCarrito([])
 
     }
     const calcularCantidad = () => {
         let cantidad = 0;
-        carrito.forEach(item => cantidad = item.cantidad)
+        carrito.forEach(item => cantidad += item.cantidad)
         return cantidad
     }
     const calcularTotal = () => {
         let total = 0;
-        carrito.forEach(item => total = item.cantidad * item.price)
+        carrito.forEach(item => total += item.cantidad * item.price)
         return total
-        console.log(total)
     }
+
     const valorCotext = {
         carrito: carrito,
         agregarProductos: agregarProductos,
         calcularCantidad: calcularCantidad,
         calcularTotal: calcularTotal,
         vaciarCarrito: vaciarCarrito,
-        borrarItem: borrarItem
+        borrarItem: borrarItem,
+
     }
     return (
         <Provider value={valorCotext}>
