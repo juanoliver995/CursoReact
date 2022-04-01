@@ -9,8 +9,9 @@ const ShoppingCart = () => {
 
     return (
         <>
-            {carrito.length === 0 ? <div className="contendeorCarrito"><h1>Aun no tienes productos en el carrito</h1> <Link to="/" className="buttonAdd">Inicio</Link></div> :
-                <><div className="contendeorCarrito">
+            {carrito.length === 0
+                ? <div className="contendeorCarrito"><h1>Aun no tienes productos en el carrito</h1> <Link to="/" className="buttonAdd">Inicio</Link></div>
+                : <><div className="contendeorCarrito">
                     <h1>carrito</h1>
                     {carrito.map(producto => (
                         <div key={producto.id} className="carrito">
