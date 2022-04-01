@@ -5,14 +5,14 @@ import { contexto } from "./context/CartContext";
 
 const Navbar = () => {
 
-    const { calcularCantidad, carrito } = useContext(contexto)
+    const { calcularCantidad, carrito, cantidad } = useContext(contexto)
     return (
         <header>
             <nav className="nav">
                 <Link to="/"><img className="logo" src={logo}></img></Link >
                 {carrito.length === 0
                     ? <> <Link to="/ShoppingCart" className="nav__icon"><span className="material-icons">shopping_cart</span></Link></>
-                    : <Link to="/ShoppingCart" className="nav__icon"><span className="material-icons">shopping_cart</span>{calcularCantidad()}</Link>
+                    : <Link to="/ShoppingCart" className="nav__icon"><span className="material-icons">shopping_cart</span>{cantidad}</Link>
                 }
 
                 <div className="nav__links">

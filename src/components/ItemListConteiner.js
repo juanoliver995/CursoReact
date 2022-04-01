@@ -11,14 +11,17 @@ const ItemListConteiner = () => {
     const [items, setItems] = useState([])
     const { idCategoria } = useParams()
 
+
+
     useEffect(() => {
         toast.info("Cargando productos...")
+        const productosCollection = collection(dataBase, "productos")
+        const pedido = getDocs(productosCollection)
 
-
-        if (!idCategoria) {
-            const productosCollection = collection(dataBase, "productos")
-            const pedido = getDocs(productosCollection)
-            pedido
+        if (idCategoria) {
+            const filtro = query(productosCollection, where("category", "==", idCategoria))
+            const pedidoFiltrado = getDocs(filtro)
+            pedidoFiltrado
                 .then((res) => {
                     toast.dismiss()
                     const resultadoProductos = res.docs.map((doc) => {
@@ -33,9 +36,6 @@ const ItemListConteiner = () => {
 
                 })
         } else {
-            const productosCollection = collection(dataBase, "productos")
-            const filtro = query(productosCollection, where("category", "==", idCategoria))
-            const pedido = getDocs(filtro)
             pedido
                 .then((res) => {
                     toast.dismiss()

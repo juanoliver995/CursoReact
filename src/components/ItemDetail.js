@@ -26,9 +26,9 @@ const ItemDetail = ({ item }) => {
                     <p className='rate'>Valoraciones: {item.rating?.count}</p>
                     <div>
                         {cantidad === 0
-                            ? (<ItemCount stock={10} initial={0} onAdd={onAdd} />)
+                            ? (<ItemCount stock={item.stock} initial={0} onAdd={onAdd} />)
                             : (<div>
-                                <ItemCount stock={10} initial={0} onAdd={onAdd} />
+                                <ItemCount stock={item.stock} initial={0} onAdd={onAdd} />
                                 <div className='linkCarrito'>
                                     <Link to="/ShoppingCart">Ir al carrito</Link>
                                 </div>

@@ -6,18 +6,23 @@ const { Provider } = contexto
 const MiProvider = ({ children }) => {
 
     const [carrito, setCarrito] = useState([])
+    const [total, setTotal] = useState(0)
+    const [cantidad, setCantidad] = useState(0)
 
-    const agregarProductos = (producto, cantidad) => {
+    const agregarProductos = (producto, cantidadSeleccionada) => {
         const carritoCopia = [...carrito];
-        const itemAlCarrito = { ...producto, cantidad }
+        const itemAlCarrito = { ...producto, cantidadSeleccionada }
         if (yaExiste(producto.id)) {
             let index = carritoCopia.findIndex(item => item.id === producto.id);
-            carrito[index].cantidad += cantidad;
+            carrito[index].cantidad += cantidadSeleccionada;
             setCarrito(carritoCopia)
         } else {
             carritoCopia.push(itemAlCarrito)
             setCarrito(carritoCopia)
         }
+        setCantidad(cantidad + cantidadSeleccionada)
+        setTotal(total + producto.price * cantidadSeleccionada)
+
     }
 
     const yaExiste = (id) => {
@@ -32,25 +37,13 @@ const MiProvider = ({ children }) => {
         setCarrito([])
 
     }
-    const calcularCantidad = () => {
-        let cantidad = 0;
-        carrito.forEach(item => cantidad += item.cantidad)
-        return cantidad
-    }
-    const calcularTotal = () => {
-        let total = 0;
-        carrito.forEach(item => total += item.cantidad * item.price)
-        return total
-    }
-
     const valorCotext = {
         carrito: carrito,
         agregarProductos: agregarProductos,
-        calcularCantidad: calcularCantidad,
-        calcularTotal: calcularTotal,
+        cantidad: cantidad,
         vaciarCarrito: vaciarCarrito,
         borrarItem: borrarItem,
-
+        total: total
     }
     return (
         <Provider value={valorCotext}>

@@ -1,10 +1,37 @@
+import { addDoc, collection, serverTimestamp } from "firebase/firestore"
 import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { toast } from "react-toastify"
+import { dataBase } from "../firebase/firebase"
 import { contexto } from "./context/CartContext"
 
 const ShoppingCart = () => {
 
-    const { carrito, calcularTotal, borrarItem, vaciarCarrito } = useContext(contexto)
+    const { carrito, borrarItem, vaciarCarrito, total, cantidad } = useContext(contexto)
+
+
+    const terminarCompra = () => {
+        const orden = {
+            buyer: {
+                nombre: "Juan",
+                telefono: "123456",
+                email: "juankpo",
+            },
+            producto: carrito,
+            date: serverTimestamp(),
+            total: total
+
+        }
+        const ordenesCollection = collection(dataBase, "ordenes")
+        const pedido = addDoc(ordenesCollection, orden)
+        pedido
+            .then(res => {
+                console.log(res)
+                toast.success(`Finalizando Comprra ID: ${res.id}`)
+            }).catch(error => {
+                toast.error("error")
+            })
+    }
 
 
     return (
@@ -18,16 +45,17 @@ const ShoppingCart = () => {
                             <div className="imagenCarrito"><img src={producto.image}></img></div>
                             <div>
                                 <p>{producto.title}</p>
-                                <p>precio: ${producto.price} x cantidad: {producto.cantidad}</p>
-                                <p>total parcial: {producto.price * producto.cantidad}</p>
+                                <p>precio: ${producto.price} x cantidad: {producto.cantidadSeleccionada}</p>
+                                <p>total parcial: {producto.price * producto.cantidadSeleccionada}</p>
                             </div>
                             <div>
                                 <button onClick={() => borrarItem(producto.id)}>borrar</button>
                             </div>
                         </div>
                     ))}
-                    <h2>{calcularTotal()}</h2>
+                    <h2>total final :{total}</h2>
                     <button onClick={vaciarCarrito}>Vaciar Carrito</button>
+                    <button onClick={terminarCompra}>Terminar Compra</button>
                 </div> </>
             }
 
