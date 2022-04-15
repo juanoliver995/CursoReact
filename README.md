@@ -1,5 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/88c29c9f-3b3e-48f4-afe9-c66be56b16de/deploy-status)](https://app.netlify.com/sites/extraordinary-valkyrie-e76da1/deploys)
 
+[para ir directamente al sitio presione aqui](https://extraordinary-valkyrie-e76da1.netlify.app/)
+
 # Free Market
 
 Hola mi nombre es Juan Oliver y este es mi *Proyecto de React* llamado _Free Market_, este proyecto consta de un ecommerce sencillo, con funcionalidades basicas.
