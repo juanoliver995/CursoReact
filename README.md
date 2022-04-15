@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Free Market
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hola mi nombre es Juan Oliver y este es mi *Proyecto de React* llamado _Free Market_, este proyecto consta de un ecommerce sencillo, con funcionalidades basicas.
 
-## Available Scripts
+## Funcionalidades
 
-In the project directory, you can run:
+1. Los productos son traidos desde *Firestore* y mostrados en el home a tarves del componente ItemListConteiner que a su vez tiene la capacidad de mostrar los productos filtrados por categoria segun lo que desee el usuario.
+2. Cada producto posee un boton para ver los detalles del producto, el cual los dirige hacia la url del producto en cuestion, en esta se renderiza el *ItemDetail* que es el componenete que posee toda la informacion detallada del producto seleccionado por el usuario.
+3. Dentro de este componente se renderiza otro llamado *ItemCount* que es el contador para que el usuario elija la cantidad de productos que desee seleccionar y agregarlos al carrito.
+4. Luego de haber elegido la cantidad el usuario tiene 2 opciones, la primera es ir al home y seguir comprando los productos que desee y la segunda es ir al carrito.
+5. Cuando el usuario se dirige al carrito se renderiza otro componenete llamado *ShoppingCart* este es el encargado de recibir toda la informacion sobre los productos que el usuario a escogido previamente y mostrarlos en pantalla, ademas de esto el componenete *ShoppingCart* es el encargado de toda la logica de compra de la pagina, consume esta logica del *Contexto creado* para tener las funcionalidades necesarias como agregar productos, borrarlo o finalizar la compra.
+6. Una vez presionado el boton para finalizar la compra se abrirar otro componente que es el encargado de tomar todos los datos del cliente y enviarlos a la base de datos este componente lo llame *Form*.
+7. Una vez llenado el formulario con los datos del usuario se renderiza el ultimo componente del proceso de compra que es el *InfoCompra* este componenete capta toda la informacion del usuario que recaudo el Form para mostrar un mensaje en pantalla agreadeciendo por la compra y mostrando detalles sobre la entrega de su pedido.
 
-### `npm start`
+## Dependencias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- *firebase*: ^9.6.10,
+- *rc-rate*: ^2.9.1,
+- *react*: ^17.0.2,
+- *react-dom*: ^17.0.2,
+- *react-router-dom*: ^6.2.2,
+- *react-scripts*: 5.0.0,
+- *react-toastify*: "^8.2.0",
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Uso de las depencias 
 
-### `npm test`
+- Firebase es utilizada como base de datos donde contenemos los productos por un lado y por el otro los datos de los usuarios que ya han realizado compras
+- Rc rate es utilizado para las valoraciones (stars) que se encuntran em el ItemDetail
+- React y React-dom es la libreria utilizada para el proyecto
+- React-router-dom es utilizada para la creacion de los links y rutas dentro del sitio, esta libreria proporciona las herramientas para transformar la platadorma en una SPA en simples pasos
+- React-toostify es utilizado para los mensajes de error o succes en el caso que sea necesario en la mayoria de las promesas y peticiones a la base de datos.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Descarga e instalacion del proyecto 
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Para descargar mi proyecto deberas entrar a mi perfil de [gitHub](https://github.com/juanoliver995/CursoReact)
+2. Descargar el proyecto e instalarlo con npm instal
+3. Luego lo inicias con npm init
+4. Recuerda chequear que todas las dependencias esten instaladas correctamente
+5. Para finalizar npm start y ya tiene el proyecto corriendo en tu navegador
