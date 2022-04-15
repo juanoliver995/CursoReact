@@ -1,64 +1,56 @@
-import { addDoc, collection, serverTimestamp } from "firebase/firestore"
-import { useContext } from "react"
-import { Link } from "react-router-dom"
-import { toast } from "react-toastify"
-import { dataBase } from "../firebase/firebase"
+import { useContext, useState } from "react"
 import { contexto } from "./context/CartContext"
+import Form from "./Form"
+
+
+
 
 const ShoppingCart = () => {
 
     const { carrito, borrarItem, vaciarCarrito, total, cantidad } = useContext(contexto)
+    const [compra, setCompra] = useState(false)
 
-
-    const terminarCompra = () => {
-        const orden = {
-            buyer: {
-                nombre: "Juan",
-                telefono: "123456",
-                email: "juankpo",
-            },
-            producto: carrito,
-            date: serverTimestamp(),
-            total: total
-
-        }
-        const ordenesCollection = collection(dataBase, "ordenes")
-        const pedido = addDoc(ordenesCollection, orden)
-        pedido
-            .then(res => {
-                console.log(res)
-                toast.success(`Finalizando Comprra ID: ${res.id}`)
-            }).catch(error => {
-                toast.error("error")
-            })
-    }
 
 
     return (
         <>
-            {carrito.length === 0
-                ? <div className="contendeorCarrito"><h1>Aun no tienes productos en el carrito</h1> <Link to="/" className="buttonAdd">Inicio</Link></div>
-                : <><div className="contendeorCarrito">
-                    <h1>carrito</h1>
+            <div className="contendeorCarrito">
+                <article className="contendorCarritoFinal">
+                    <div className="title"><h1 >CARRITO</h1></div>
                     {carrito.map(producto => (
                         <div key={producto.id} className="carrito">
-                            <div className="imagenCarrito"><img src={producto.image}></img></div>
-                            <div>
-                                <p>{producto.title}</p>
-                                <p>precio: ${producto.price} x cantidad: {producto.cantidadSeleccionada}</p>
-                                <p>total parcial: {producto.price * producto.cantidadSeleccionada}</p>
+                            <img src={producto.image} className="imagenCarrito" alt={producto.title}></img>
+                            <div className="carritoInformacion">
+                                <div className="divDescrip">
+                                    <h2 className="carritoTitulo">{producto.title}</h2>
+                                    <p className="carritoDescription">{producto.description}</p>
+                                    <p>Cantidad Seleccionada: {producto.cantidadSeleccionada}</p>
+                                </div>
+                                <div>
+                                    <span className="productoPrecio">${producto.price * producto.cantidadSeleccionada}</span>
+                                </div>
                             </div>
                             <div>
-                                <button onClick={() => borrarItem(producto.id)}>borrar</button>
+                                <button className="botonBorrar" onClick={() => borrarItem(producto.id)}>Borrar</button>
                             </div>
                         </div>
                     ))}
-                    <h2>total final :{total}</h2>
-                    <button onClick={vaciarCarrito}>Vaciar Carrito</button>
-                    <button onClick={terminarCompra}>Terminar Compra</button>
-                </div> </>
-            }
-
+                    {carrito.length == 0
+                        ? ""
+                        :
+                        <div>
+                            <div className="carritoFinalizarCompra">
+                                <h2>total final :{total}</h2>
+                                <button className="botonesCarritoVaciar" onClick={vaciarCarrito}>Vaciar Carrito</button>
+                                <button className="botonesCarrito" onClick={() => setCompra(true)}>Comprar</button>
+                            </div>
+                            <div className={`form ${!compra && "hidden"}`}>
+                                <Form />
+                            </div>
+                        </div>
+                    }
+                </article>
+            </div>
         </>
     )
 }

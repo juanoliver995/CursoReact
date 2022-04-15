@@ -35,6 +35,7 @@ const MiProvider = ({ children }) => {
 
     const vaciarCarrito = () => {
         setCarrito([])
+        setCantidad(0)
 
     }
     const valorCotext = {

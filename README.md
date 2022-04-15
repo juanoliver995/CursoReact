@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/88c29c9f-3b3e-48f4-afe9-c66be56b16de/deploy-status)](https://app.netlify.com/sites/extraordinary-valkyrie-e76da1/deploys)
+
 # Free Market
 
 Hola mi nombre es Juan Oliver y este es mi *Proyecto de React* llamado _Free Market_, este proyecto consta de un ecommerce sencillo, con funcionalidades basicas.
@@ -37,3 +39,7 @@ Hola mi nombre es Juan Oliver y este es mi *Proyecto de React* llamado _Free Mar
 3. Luego lo inicias con npm init
 4. Recuerda chequear que todas las dependencias esten instaladas correctamente
 5. Para finalizar npm start y ya tiene el proyecto corriendo en tu navegador
+
+
+## Video demostrativo de proceso de compra 
+### [presione aqui para ir a youtube](https://youtu.be/rI2_1DWpqvE)

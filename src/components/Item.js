@@ -4,7 +4,7 @@ const Item = ({ item }) => {
     return (
         <article className="conteiner__products-cards">
             <h2>{item.title}</h2>
-            <img src={item.image}></img>
+            <img src={item.image} alt={item.title}></img>
             <p>Precio: ${item.price}</p>
             <div>
                 <Link to={`/producto/${item.id}`}> Ver detalle</Link>

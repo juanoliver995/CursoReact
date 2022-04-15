@@ -6,6 +6,7 @@ import { dataBase } from "../firebase/firebase";
 import { collection, getDocs, where, query } from "firebase/firestore";
 
 
+
 const ItemListConteiner = () => {
 
     const [items, setItems] = useState([])
@@ -18,10 +19,8 @@ const ItemListConteiner = () => {
         const productosCollection = collection(dataBase, "productos")
         const pedido = getDocs(productosCollection)
 
-        if (idCategoria) {
-            const filtro = query(productosCollection, where("category", "==", idCategoria))
-            const pedidoFiltrado = getDocs(filtro)
-            pedidoFiltrado
+        if (!idCategoria) {
+            pedido
                 .then((res) => {
                     toast.dismiss()
                     const resultadoProductos = res.docs.map((doc) => {
@@ -36,7 +35,10 @@ const ItemListConteiner = () => {
 
                 })
         } else {
-            pedido
+            const filtro = query(productosCollection, where("category", "==", idCategoria))
+            const pedidoFiltrado = getDocs(filtro)
+
+            pedidoFiltrado
                 .then((res) => {
                     toast.dismiss()
                     const resultadoProductos = res.docs.map((doc) => {
@@ -57,9 +59,10 @@ const ItemListConteiner = () => {
 
     return (
         <main>
-            <div >
+            <div className="contenedor">
                 <>
                     <ItemList items={items} />
+
                 </>
             </div>
         </main>

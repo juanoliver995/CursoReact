@@ -1,21 +1,20 @@
-import Main from "./components/Main"
-import NavBar from "./components/NavBar"
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter } from "react-router-dom"
-import Footer from "./components/Footer";
 import MiProvider from "./components/context/CartContext";
+import Home from "./components/Home";
 
 function App() {
+
     return (
-        <MiProvider>
-            <BrowserRouter>
-                <NavBar />
-                <Main />
-                <Footer />
-                <ToastContainer />
-            </BrowserRouter>
-        </MiProvider>
+        <>
+            <MiProvider>
+                <BrowserRouter>
+                    <Home />
+                    <ToastContainer />
+                </BrowserRouter>
+            </MiProvider>
+        </>
     )
 
 }
